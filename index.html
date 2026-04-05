@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlavorNest — Recipe & Kitchen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="#home" class="logo" data-nav="home" aria-label="FlavorNest home">
+        <span class="logo-mark">🍳</span>
+        <span class="logo-text">FlavorNest</span>
+      </a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active" data-nav="home">Home</a></li>
+          <li><a href="#menu" class="nav-link" data-nav="menu">Menu</a></li>
+          <li><a href="#services" class="nav-link" data-nav="services">Services</a></li>
+          <li><a href="#about" class="nav-link" data-nav="about">About</a></li>
+          <li><a href="#contact" class="nav-link" data-nav="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="layout" id="layout">
+    <aside class="sidebar" id="sidebar" aria-label="Recipe categories and tools">
+      <div class="sidebar-header">
+        <h2 class="sidebar-title">Explore</h2>
+        <button type="button" class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">×</button>
+      </div>
+      <div class="sidebar-search">
+        <label for="recipe-search" class="visually-hidden">Search recipes</label>
+        <input type="search" id="recipe-search" class="search-input" placeholder="Search recipes…" autocomplete="off" />
+      </div>
+      <nav class="sidebar-nav" aria-label="Categories">
+        <p class="sidebar-label">Categories</p>
+        <ul class="category-list">
+          <li><button type="button" class="category-btn active" data-category="all">All recipes</button></li>
+          <li><button type="button" class="category-btn" data-category="breakfast">Breakfast</button></li>
+          <li><button type="button" class="category-btn" data-category="lunch">Lunch</button></li>
+          <li><button type="button" class="category-btn" data-category="dinner">Dinner</button></li>
+          <li><button type="button" class="category-btn" data-category="dessert">Dessert</button></li>
+        </ul>
+      </nav>
+      <div class="sidebar-featured">
+        <p class="sidebar-label">Tip of the day</p>
+        <p class="tip-text" id="daily-tip">Rest meat after cooking so juices redistribute.</p>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebar-backdrop" hidden aria-hidden="true"></div>
+
+    <main class="main" id="main-content" role="main">
+      <button type="button" class="sidebar-open-btn" id="sidebar-open" aria-label="Open categories sidebar">
+        <span aria-hidden="true">☰</span> Categories
+      </button>
+
+      <section id="home" class="page-section is-visible" data-section="home" aria-labelledby="home-heading">
+        <div class="hero">
+          <div class="hero-content">
+            <h1 id="home-heading" class="hero-title">Cook with confidence</h1>
+            <p class="hero-lede">Seasonal recipes, clear steps, and ideas for every meal—curated for busy kitchens.</p>
+            <div class="hero-actions">
+              <a href="#menu" class="btn btn-primary" data-nav="menu">Browse menu</a>
+              <a href="#contact" class="btn btn-ghost" data-nav="contact">Get in touch</a>
+            </div>
+          </div>
+          <div class="hero-card" aria-hidden="true">
+            <span class="hero-badge">New</span>
+            <p class="hero-card-title">Tonight’s pick</p>
+            <p class="hero-card-name">Herb roasted chicken</p>
+          </div>
+        </div>
+        <div class="section-block">
+          <h2 class="section-heading">Popular this week</h2>
+          <div class="recipe-grid" id="featured-grid"></div>
+        </div>
+      </section>
+
+      <section id="menu" class="page-section" data-section="menu" aria-labelledby="menu-heading" hidden>
+        <header class="section-header">
+          <h1 id="menu-heading" class="page-title">Menu</h1>
+          <p class="page-subtitle">Filter by category using the sidebar or search above.</p>
+        </header>
+        <div class="recipe-grid" id="menu-grid"></div>
+        <p class="empty-state" id="menu-empty" hidden>No recipes match your search.</p>
+      </section>
+
+      <section id="services" class="page-section" data-section="services" aria-labelledby="services-heading" hidden>
+        <header class="section-header">
+          <h1 id="services-heading" class="page-title">Services</h1>
+          <p class="page-subtitle">How FlavorNest helps you plan, cook, and enjoy food at home.</p>
+        </header>
+        <ul class="service-list">
+          <li class="service-card">
+            <h3 class="service-title">Meal plans</h3>
+            <p>Weekly plans with grocery lists aligned to your dietary preferences.</p>
+          </li>
+          <li class="service-card">
+            <h3 class="service-title">Video walkthroughs</h3>
+            <p>Short clips for techniques—knife skills, sauces, and baking basics.</p>
+          </li>
+          <li class="service-card">
+            <h3 class="service-title">Private classes</h3>
+            <p>Live or recorded sessions for small groups and families.</p>
+          </li>
+          <li class="service-card">
+            <h3 class="service-title">Recipe scaling</h3>
+            <p>Adjust servings instantly; we recalculate ingredients for you.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="about" class="page-section" data-section="about" aria-labelledby="about-heading" hidden>
+        <header class="section-header">
+          <h1 id="about-heading" class="page-title">About</h1>
+          <p class="page-subtitle">We believe good food should be approachable, not intimidating.</p>
+        </header>
+        <div class="about-content">
+          <p>FlavorNest started as a notebook of family recipes. Today we share tested dishes, substitutions for common allergens, and timing tips so dinner lands on the table when you need it.</p>
+          <p>Our team tests every recipe in home kitchens—not only studio sets—so instructions match real stoves and ovens.</p>
+        </div>
+      </section>
+
+      <section id="contact" class="page-section" data-section="contact" aria-labelledby="contact-heading" hidden>
+        <header class="section-header">
+          <h1 id="contact-heading" class="page-title">Contact</h1>
+          <p class="page-subtitle">Questions, collaborations, or recipe requests—send a note.</p>
+        </header>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-row">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" required autocomplete="name" />
+            <span class="field-error" id="err-name" role="alert"></span>
+          </div>
+          <div class="form-row">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" name="email" required autocomplete="email" />
+            <span class="field-error" id="err-email" role="alert"></span>
+          </div>
+          <div class="form-row">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" required></textarea>
+            <span class="field-error" id="err-message" role="alert"></span>
+          </div>
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <p class="form-success" id="form-success" hidden role="status">Thanks! We’ll get back to you soon.</p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" id="recipe-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-panel">
+      <button type="button" class="modal-close" id="modal-close" aria-label="Close recipe details">×</button>
+      <h2 id="modal-title" class="modal-title"></h2>
+      <p class="modal-meta" id="modal-meta"></p>
+      <p class="modal-desc" id="modal-desc"></p>
+      <h3 class="modal-subheading">Ingredients</h3>
+      <ul class="modal-list" id="modal-ingredients"></ul>
+      <h3 class="modal-subheading">Steps</h3>
+      <ol class="modal-steps" id="modal-steps"></ol>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
